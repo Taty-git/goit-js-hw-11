@@ -1,6 +1,8 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import axios from "axios";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 axios({
   method: 'get',
   url: 'https://jsonplaceholder.typicode.com/users'
@@ -16,7 +18,7 @@ form.addEventListener('submit', function (event) {
   if (!searchText) {
     iziToast.error({
       title: 'Error',
-      message: 'Please, enter the text for search!',
+      message: 'Please, enter the text for search!',      
     });
     return;
   }
