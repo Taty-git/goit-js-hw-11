@@ -53,5 +53,43 @@ button {
   letter-spacing: 0.04em;
   color: #ffffff;
   margin-left: 8px;
-
+}
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+  gap: 24px;
+  row-gap: 24px;
+}
+.gallery-item {
+  display: block;
+  width: 360px;
+  height: 200px;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #808080;
+}
+img {
+  display: block;
+  width: 360px;
+  height: 152px;
+  object-fit: cover;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  width: 360px;
+  height: 48px;
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+p {
+  display: block;
 }
