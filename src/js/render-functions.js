@@ -1,17 +1,18 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-export const showLoader = () => {
-  const loader = document.createElement('div');
-  loader.classList.add('loader');
-  document.body.appendChild(loader);
-};
+export function showLoader() {
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        loader.style.display = 'inline-block'; 
+    }
+}
 
-export const hideLoader = () => {
-  const loader = document.querySelector('.loader');
-  if (loader) {
-    document.body.removeChild(loader);
-  }
+export function hideLoader() {
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        loader.style.display = 'none'; 
+    }
 };
 
 export const clearGallery = () => {
