@@ -3,7 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { fetchImages } from './js/pixabay-api.js';
-import { showLoader, hideLoader, clearGallery, createGallery, renderImages } from './js/render-functions.js';
+import { showLoader, hideLoader, clearGallery, renderImages } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
 
@@ -21,11 +21,11 @@ form.addEventListener('submit', function (event) {
   showLoader();
 
   let gallery = document.querySelector('.gallery');
-    if (!gallery) {
-        gallery = createGallery();
-    } else {
-        clearGallery();
-    }
+  if (!gallery) {
+    gallery = createGallery();
+  } else {
+    clearGallery();
+  }
 
   fetchImages(searchText)
     .then(response => {
@@ -40,9 +40,10 @@ form.addEventListener('submit', function (event) {
         });
         return;
       }
-      renderImages(images, gallery);
 
-    const lightbox = new SimpleLightbox('.gallery a', {
+      renderImages(images);
+
+      const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
       });
