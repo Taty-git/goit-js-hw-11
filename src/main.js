@@ -1,9 +1,7 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { fetchImages } from './js/pixabay-api.js';
-import { showLoader, hideLoader, clearGallery, renderImages } from './js/render-functions.js';
+import { showLoader, hideLoader, clearGallery, renderImages, initializeLightbox } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
 
@@ -42,13 +40,10 @@ form.addEventListener('submit', function (event) {
       }
 
       renderImages(images);
+      initializeLightbox();
 
-      const lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-      });
-      lightbox.refresh();
-    })
+      })
+   
     .catch(error => {
       hideLoader();
       iziToast.error({
