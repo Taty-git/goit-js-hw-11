@@ -16,14 +16,14 @@ form.addEventListener('submit', function (event) {
     });
     return;
   }
-  showLoader();
-
+  
   let gallery = document.querySelector('.gallery');
   if (!gallery) {
     gallery = createGallery();
   } else {
     clearGallery();
   }
+  showLoader();
 
   fetchImages(searchText)
     .then(response => {
