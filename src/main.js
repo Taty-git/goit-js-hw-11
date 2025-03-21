@@ -1,12 +1,13 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import { fetchImages } from './js/pixabay-api.js';
 import { showLoader, hideLoader, clearGallery, renderImages, initializeLightbox } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
+hideLoader();
 
 form.addEventListener('submit', function (event) {
-  event.preventDefault();
+  event.preventDefault(); 
   const searchText = form.querySelector('input[name="search-text"]').value.trim();
 
   if (!searchText) {
@@ -24,28 +25,28 @@ form.addEventListener('submit', function (event) {
   } else {
     clearGallery();
   }
-  
+
   fetchImages(searchText)
     .then(response => {
-      hideLoader();
+      hideLoader(); 
 
       const images = response.data.hits;
+
 
       if (images.length === 0) {
         iziToast.warning({
           title: 'Caution',
           message: 'Sorry, there are no images matching your search query. Please try again!',
         });
-        return;
+        return; 
       }
 
       renderImages(images);
       initializeLightbox();
 
-      })
-   
+    })
     .catch(error => {
-      hideLoader();
+      hideLoader(); 
       iziToast.error({
         title: 'Error',
         message: 'Illegal operation.',
